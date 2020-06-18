@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.10)
+project(BoardingSimulator)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(include)
+file(GLOB SOURCES "src/*.cpp")
+file(GLOB SOURCES_GRAPHICS "src/Graphics/*.cpp")
+file(GLOB SOURCES_GRAPHICS "src/Plane/*.cpp")
+
+find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
+add_executable(BoardingSimulator ${SOURCES} ${SOURCES_GRAPHICS})
+target_link_libraries(BoardingSimulator sfml-graphics sfml-audio)
