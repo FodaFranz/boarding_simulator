@@ -8,7 +8,7 @@ class Path : public Graphics_Object{
 public:
     Path(float x, float y, sf::Color fill_color, float height, float width);
     
-    sf::RectangleShape get_rect_shape();
+    sf::Drawable* get_shape();
     string get_string();
 
 private:

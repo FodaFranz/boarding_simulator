@@ -8,7 +8,7 @@ class Seat : public Graphics_Object{
 public:
     Seat(float x, float y, sf::Color fill_color, float radius);
 
-    sf::CircleShape get_circle_shape();
+    sf::Drawable* get_shape();
     string get_string();
 
 private:

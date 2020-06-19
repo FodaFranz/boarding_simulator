@@ -1,9 +1,11 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Graphics/path.h"
+#include "Plane/plane.h"
 
 int main() {
-    std::cout << "Hello to my program my dude" << std::endl;
+    Plane* pl = new Plane();
+    pl->generate_plane_data("./res/plane.txt");
+    pl->start();
     return 0;
 }

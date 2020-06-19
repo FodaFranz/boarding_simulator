@@ -5,11 +5,11 @@ Seat::Seat(float x, float y, sf::Color fill_color, float radius) :
 {
     this->circle_shape.setRadius(radius);
     this->circle_shape.setFillColor(fill_color);
-    this->circle_shape.setPosition(sf::Vector2f(x,y));
+    this->circle_shape.setPosition(sf::Vector2f(graphical_x,graphical_y));
 }
 
-sf::CircleShape Seat::get_circle_shape() {
-    return circle_shape;
+sf::Drawable* Seat::get_shape() {
+    return &circle_shape;
 }
 
 string Seat::get_string() {

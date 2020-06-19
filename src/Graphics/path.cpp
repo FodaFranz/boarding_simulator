@@ -5,11 +5,11 @@ Path::Path(float x, float y, sf::Color fill_color, float height, float width) :
 {
     this->rect_shape.setSize(sf::Vector2f(width, height));
     this->rect_shape.setFillColor(fill_color);
-    this->rect_shape.setPosition(sf::Vector2f(x,y));
+    this->rect_shape.setPosition(sf::Vector2f(graphical_x,graphical_y));
 }
 
-sf::RectangleShape Path::get_rect_shape() {
-    return this->rect_shape;
+sf::Drawable* Path::get_shape() {
+    return &this->rect_shape;
 }
 
 string Path::get_string() {
