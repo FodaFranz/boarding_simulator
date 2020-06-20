@@ -13,7 +13,7 @@ sf::Drawable* Seat::get_shape() {
 }
 
 string Seat::get_string() {
-    string ret_string = Graphics_Object::get_string();
+    string ret_string = "Seat: " + Graphics_Object::get_string();
     ret_string += "Radius: " + std::to_string(circle_shape.getRadius());
     return ret_string;
 }

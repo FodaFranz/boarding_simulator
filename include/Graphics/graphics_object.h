@@ -3,14 +3,16 @@
 
 #include <SFML/Graphics.hpp>
 #include <string>
+#include <iostream>
 
 using std::string;
 
 class Graphics_Object {
 public:
     Graphics_Object(float x, float y, sf::Color fill_color);
-    string get_string();
-    sf::Drawable* get_shape() {
+    virtual string get_string();
+    virtual sf::Drawable* get_shape() {
+        std::cout << "GOB CLASS" << std::endl;
         return nullptr;
     }
 

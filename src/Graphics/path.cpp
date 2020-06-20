@@ -9,11 +9,11 @@ Path::Path(float x, float y, sf::Color fill_color, float height, float width) :
 }
 
 sf::Drawable* Path::get_shape() {
-    return &this->rect_shape;
+    return &rect_shape;
 }
 
 string Path::get_string() {
-    string ret_string = Graphics_Object::get_string();
+    string ret_string = "Path: " + Graphics_Object::get_string();
     ret_string += "Size: (" + std::to_string(rect_shape.getSize().x) + " x " + std::to_string(rect_shape.getSize().y) + ")";
     return ret_string;
 }
