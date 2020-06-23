@@ -1,3 +1,6 @@
+#ifndef NODE_OBJECT_H
+#define NODE_OBJECT_H
+
 #include <vector>
 #include <string>
 #include <iostream>
@@ -15,3 +18,5 @@ private:
     Node* parent;
     std::vector<Node*> neighbors;
 };
+
+#endif

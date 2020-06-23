@@ -10,6 +10,7 @@ public:
     
     sf::Drawable* get_shape();
     string get_string();
+    string get_type() { return "Path"; }
 
 private:
     sf::RectangleShape rect_shape;

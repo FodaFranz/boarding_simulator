@@ -10,10 +10,16 @@ using std::string;
 class Graphics_Object {
 public:
     Graphics_Object(float x, float y, sf::Color fill_color);
+
+    float get_x() { return x; }
+    float get_y() { return y; }
+
     virtual string get_string();
     virtual sf::Drawable* get_shape() {
-        std::cout << "GOB CLASS" << std::endl;
         return nullptr;
+    }
+    virtual string get_type() {
+        return "Graphical_Object";
     }
 
 protected:

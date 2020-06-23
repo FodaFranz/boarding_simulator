@@ -10,6 +10,7 @@ public:
 
     sf::Drawable* get_shape();
     string get_string();
+    string get_type() { return "Seat"; }
 
 private:
     sf::CircleShape circle_shape;
