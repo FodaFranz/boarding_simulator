@@ -16,6 +16,9 @@ void Plane::generate_plane_data(std::string path) {
                 if(line[i] == 'p') {
                     Path* p = new Path(i,row, sf::Color::Black, 10, 10);
                     plane_objects.push_back(p); 
+
+                    Node* n = new Node(i, row);
+                    nodes.push_back(n);
                 }
                 else if(line[i] == 's') {
                     //If i remove this it stops working so it stays
@@ -41,13 +44,14 @@ void Plane::generate_plane_data(std::string path) {
 }
 
 void Plane::generate_window_dimensions(int rows, int cols) {
-    std::cout << rows << ":" << cols << std::endl;
     window_height = rows * 10;
     window_width = cols * 10;
 }
 
 void Plane::start() {
-    window = new sf::RenderWindow(sf::VideoMode(window_width, window_height), "Boarding Simulation");
+    std::cout << "START" << std::endl;
+    sf::RenderWindow w (sf::VideoMode(window_width, window_height), "Boarding Simulation");
+    window = &w;
     while(window->isOpen()) {
         update();
     }

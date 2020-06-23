@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Graphics/path.h"
 #include "Graphics/seat.h"
+#include "Pathfinding/node.h"
 
 class Plane {
 public:
@@ -17,6 +18,7 @@ public:
 
 private:
     std::vector<Graphics_Object*> plane_objects;
+    std::vector<Node*> nodes;
 
     sf::RenderWindow* window;
     int window_width, window_height;
