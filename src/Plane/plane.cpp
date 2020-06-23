@@ -49,8 +49,18 @@ void Plane::generate_plane_data(std::string path) {
                     if(i == 0 && row == 3) {
                         std::cout << "..." << std::endl;
                     }
-
-                    Seat* s = new Seat(i, row, sf::Color::Blue, 5);
+                    float entrance_x;
+                    for(int j = i;j < line.length(); j++) {
+                        if(line[i - j] == 'p') {
+                            entrance_x = i - j;
+                            break;
+                        }
+                        else if(line[i + j] == 'p') {
+                            entrance_x = i + j;
+                            break;
+                        }
+                    }
+                    Seat* s = new Seat(i, row, sf::Color::Blue, 5, entrance_x, row);
                     plane_objects.push_back(s);
                 }
                 else {
@@ -75,7 +85,7 @@ void Plane::generate_window_dimensions(int rows, int cols) {
 void Plane::generate_passengers() {
     for(Graphics_Object* gob : plane_objects) {
         if(gob->get_type() == "Seat") {
-            Passenger* p = new Passenger(nodes, 0, 0, gob->get_x(), gob->get_y());
+            Passenger* p = new Passenger(nodes, (Seat*) gob);
             passengers.push_back(p);
         }
     }

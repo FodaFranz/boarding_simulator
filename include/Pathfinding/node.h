@@ -11,6 +11,8 @@ class Node {
 public:
     Node(int x, int y);
     string get_string();
+    float get_x() { return static_cast<float>(x); }
+    float get_y() { return static_cast<float>(y); }
     ~Node();
 
 private:
