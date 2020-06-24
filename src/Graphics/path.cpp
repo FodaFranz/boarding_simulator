@@ -1,5 +1,7 @@
 #include "Graphics/path.h"
 
+using namespace Graphics;
+
 Path::Path(float x, float y, sf::Color fill_color, float height, float width) :
     Graphics_Object(x,y,fill_color) 
 {

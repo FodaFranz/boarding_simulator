@@ -38,7 +38,7 @@ void Plane::generate_plane_data(std::string path) {
                     max_line_length = line.length();
 
                 if(line[i] == 'p') {
-                    Path* p = new Path(i,row, sf::Color::Black, 10, 10);
+                    Graphics::Path* p = new Graphics::Path(i,row, sf::Color::Black, 10, 10);
                     plane_objects.push_back(p);
 
                     Node* n = new Node(i, row);
@@ -60,7 +60,7 @@ void Plane::generate_plane_data(std::string path) {
                             break;
                         }
                     }
-                    Seat* s = new Seat(i, row, sf::Color::Blue, 5, entrance_x, row);
+                    Graphics::Seat* s = new Graphics::Seat(i, row, sf::Color::Blue, 5, entrance_x, row);
                     plane_objects.push_back(s);
                 }
                 else {
@@ -83,9 +83,9 @@ void Plane::generate_window_dimensions(int rows, int cols) {
 }
 
 void Plane::generate_passengers() {
-    for(Graphics_Object* gob : plane_objects) {
+    for(Graphics::Graphics_Object* gob : plane_objects) {
         if(gob->get_type() == "Seat") {
-            Passenger* p = new Passenger(nodes, (Seat*) gob);
+            Passenger* p = new Passenger(nodes, (Graphics::Seat*) gob);
             passengers.push_back(p);
         }
     }

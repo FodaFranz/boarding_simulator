@@ -1,5 +1,7 @@
 #include "Graphics/graphics_object.h"
 
+using namespace Graphics;
+
 Graphics_Object::Graphics_Object(float x, float y, sf::Color fill_color) {
     this->x = x;
     this->y = y;

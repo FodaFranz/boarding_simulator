@@ -17,7 +17,7 @@ public:
 private:
     void update(sf::RenderWindow* window);
 
-    std::vector<Graphics_Object*> plane_objects;
+    std::vector<Graphics::Graphics_Object*> plane_objects;
     std::vector<Node*> nodes;
     std::vector<Passenger*> passengers;
 
