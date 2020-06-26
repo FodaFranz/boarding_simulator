@@ -22,6 +22,7 @@ private:
     std::vector<Passenger*> passengers;
 
     sf::RenderWindow* window;
+    float object_size;
     int window_width, window_height;
     void generate_window_dimensions(int rows, int cols);
     void generate_passengers();

@@ -14,7 +14,7 @@ namespace Graphics {
         Seat(float x, float y, sf::Color fill_color, float radius, float entrance_x, float entrance_y);
         Seat(float x, float y, sf::Color fill_color, float radius);
 
-        sf::Drawable* get_shape();
+        sf::Shape* get_shape();
         string get_string();
         virtual string get_type() { return "Seat"; }
         std::tuple<float, float> get_entrance();

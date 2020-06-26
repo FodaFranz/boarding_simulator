@@ -1,7 +1,3 @@
-//
-// Created by matthias on 24.06.20.
-//
-
 #include "seat.h"
 
 namespace Graphics {

@@ -8,6 +8,9 @@ Seat::Seat(float x, float y, sf::Color fill_color, float radius, float entrance_
     this->entrance_x = entrance_x;
     this->entrance_y = entrance_y;
 
+    this->graphical_x = x * (radius * 2);
+    this->graphical_y = y * (radius * 2);
+
     this->circle_shape.setRadius(radius);
     this->circle_shape.setFillColor(fill_color);
     this->circle_shape.setPosition(sf::Vector2f(graphical_x,graphical_y));
@@ -24,7 +27,7 @@ Seat::Seat(float x, float y, sf::Color fill_color, float radius) :
     this->circle_shape.setPosition(sf::Vector2f(graphical_x,graphical_y));
 }
 
-sf::Drawable* Seat::get_shape() {
+sf::Shape* Seat::get_shape() {
     return &circle_shape;
 }
 

@@ -18,13 +18,18 @@ void Plane::update(sf::RenderWindow* window) {
     }
 
     window->clear(sf::Color::White);
+    //Draw seats and path
     for(int i = 0;i < plane_objects.size();i++) {
-        sf::Drawable* shape = plane_objects[i]->get_shape();
+        sf::Shape* shape = plane_objects.at(i)->get_shape();
         window->draw(*shape);
+    }
+    //Draw and move passengers
+    for(int i = 0;i < passengers.size(); i++) {
+        passengers.at(i)->move();
+        window->draw(*passengers.at(i)->get_graphic().get_shape());
     }
     window->display();
 }
-
 
 void Plane::generate_plane_data(std::string path) {
     std::ifstream file(path);
@@ -32,13 +37,14 @@ void Plane::generate_plane_data(std::string path) {
         std::string line;
         int row = 0;
         int max_line_length = 0;
+        object_size = 20;
         while(getline(file, line)) {
             for(int i = 0;i < line.length();i ++) {
                 if(max_line_length < line.length())
                     max_line_length = line.length();
 
                 if(line[i] == 'p') {
-                    Graphics::Path* p = new Graphics::Path(i,row, sf::Color::Black, 10, 10);
+                    Graphics::Path* p = new Graphics::Path(i,row, sf::Color::Black, object_size, object_size);
                     plane_objects.push_back(p);
 
                     Node* n = new Node(i, row);
@@ -60,7 +66,7 @@ void Plane::generate_plane_data(std::string path) {
                             break;
                         }
                     }
-                    Graphics::Seat* s = new Graphics::Seat(i, row, sf::Color::Blue, 5, entrance_x, row);
+                    Graphics::Seat* s = new Graphics::Seat(i, row, sf::Color::Blue, object_size/2, entrance_x, row);
                     plane_objects.push_back(s);
                 }
                 else {
@@ -78,14 +84,14 @@ void Plane::generate_plane_data(std::string path) {
 }
 
 void Plane::generate_window_dimensions(int rows, int cols) {
-    window_height = rows * 10;
-    window_width = cols * 10;
+    window_height = rows * object_size;
+    window_width = cols * object_size;
 }
 
 void Plane::generate_passengers() {
     for(Graphics::Graphics_Object* gob : plane_objects) {
         if(gob->get_type() == "Seat") {
-            Passenger* p = new Passenger(nodes, (Graphics::Seat*) gob);
+            Passenger* p = new Passenger(nodes, (Graphics::Seat*) gob, object_size/2 - 1);
             passengers.push_back(p);
         }
     }

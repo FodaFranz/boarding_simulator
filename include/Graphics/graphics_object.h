@@ -15,7 +15,7 @@ namespace Graphics {
         float get_y() { return y; }
 
         virtual string get_string();
-        virtual sf::Drawable* get_shape() {
+        virtual sf::Shape* get_shape() {
             return nullptr;
         }
         virtual string get_type() {

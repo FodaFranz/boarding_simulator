@@ -8,7 +8,7 @@ namespace Graphics {
     public:
         Path(float x, float y, sf::Color fill_color, float height, float width);
 
-        sf::Drawable *get_shape();
+        sf::Shape *get_shape();
         string get_string();
         string get_type() { return "Path"; }
 

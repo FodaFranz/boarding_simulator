@@ -5,12 +5,15 @@ using namespace Graphics;
 Path::Path(float x, float y, sf::Color fill_color, float height, float width) :
     Graphics_Object(x,y,fill_color) 
 {
+    this->graphical_x = x * height;
+    this->graphical_y = y * height;
+
     this->rect_shape.setSize(sf::Vector2f(width, height));
     this->rect_shape.setFillColor(fill_color);
     this->rect_shape.setPosition(sf::Vector2f(graphical_x,graphical_y));
 }
 
-sf::Drawable* Path::get_shape() {
+sf::Shape* Path::get_shape() {
     return &rect_shape;
 }
 

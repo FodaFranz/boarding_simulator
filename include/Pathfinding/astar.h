@@ -1,0 +1,4 @@
+class Astar {
+public:
+private:
+};
